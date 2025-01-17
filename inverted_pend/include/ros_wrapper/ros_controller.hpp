@@ -4,6 +4,7 @@
 #include <ros/ros.h>
 #include "controller/inverted_pend_controller.hpp"
 #include "controller/pid_controller.hpp"
+#include "controller/state_feedback_controller.hpp"
 #include "inverted_pend/State_msg.h"
 #include "inverted_pend/Unpause.h"
 #include "std_msgs/Float64.h"

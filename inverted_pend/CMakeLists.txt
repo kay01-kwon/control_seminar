@@ -98,6 +98,7 @@ target_link_libraries(inverted_pend_node
 add_executable(inverted_pend_controller
   include/controller/inverted_pend_controller.cpp
   include/controller/pid_controller.cpp
+  include/controller/state_feedback_controller.cpp
   include/ros_wrapper/ros_controller.cpp
   src/controller_node.cpp
 )

@@ -23,6 +23,19 @@ ROSControl::ROSControl(const ros::NodeHandle &nh)
     }
     else if(control_type == "StateFeedback")
     {
+        double K1, K2, K3, K4;
+        Gain gains;
+        
+        nh_.getParam("K1", K1);
+        nh_.getParam("K2", K2);
+        nh_.getParam("K3", K3);
+        nh_.getParam("K4", K4);
+
+        gains << K1, K2, K3, K4;
+
+        cout << "K1: " << K1 << " K2: " << K2 << " K3: " << K3 << " K4: " << K4 << endl;
+        control_ = InvPendControl::createControl(ControlType::StateFeedback);
+        static_cast<StateFeedbackControl*>(control_.get())->setGains(gains);
 
     }
     else

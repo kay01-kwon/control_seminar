@@ -1,0 +1,15 @@
+<launch>
+  <node name="inverted_pend_node" pkg="inverted_pend" type="inverted_pend_node" output="screen"/>
+    <param name='m' type="double" value="0.5"/>
+    <param name='l' type="double" value="0.6"/>
+    <param name='M' type="double" value="1.0"/>
+    <param name='theta0' type="double" value="0.1"/>
+  
+  <node name="SFC_Control" pkg="inverted_pend" type="inverted_pend_controller" output="screen"/>
+    <param name='ControlType' type="string" value="StateFeedback"/>
+    <param name='K1' type="double" value="20"/>
+    <param name='K2' type="double" value="4"/>
+    <param name='K3' type="double" value="0"/>
+    <param name='K4' type="double" value="0"/>
+
+</launch>

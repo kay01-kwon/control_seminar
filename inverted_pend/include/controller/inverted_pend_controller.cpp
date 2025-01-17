@@ -1,5 +1,6 @@
 #include "inverted_pend_controller.hpp"
 #include "pid_controller.hpp"
+#include "state_feedback_controller.hpp"
 
 InvPendControl::InvPendControl()
 {
@@ -17,7 +18,7 @@ std::unique_ptr<InvPendControl> InvPendControl::createControl(ControlType type)
     }
     else if(type == ControlType::StateFeedback)
     {
-        // return new StateFeedbackControl();
+        return std::make_unique<StateFeedbackControl>();
     }
 
     return nullptr;
