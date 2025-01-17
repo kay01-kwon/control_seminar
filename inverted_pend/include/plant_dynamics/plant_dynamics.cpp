@@ -55,10 +55,15 @@ State &state_dot, const double &time)
     Mat22 T;
 
     u_vec << 0.5*( m*gravity_*l*sin(theta) 
-    - m*dxdt*l*dthetadt*sin(theta)), u_ - 0.5*m*l*pow(dthetadt,2)*sin(theta);
+    - m*dxdt*l*dthetadt*sin(theta) ), 
+    u_ - 0.5*m*l*pow(dthetadt,2)*sin(theta);
 
 
-    T << M+m, 0.5*m*l*cos(theta), 0.5*m*l*cos(theta), I_p_f;
+    T << M+m, 0.5*m*l*cos(theta), 
+    0.5*m*l*cos(theta), I_p_f;
+
+    // T << I_p_f, -0.5*m*l*cos(theta),
+    // -0.5*m*l*cos(theta), M+m;
 
     Delta = (M+m)*(I_p_f) - pow(0.5*m*l*cos(theta),2);
 

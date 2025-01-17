@@ -50,6 +50,10 @@ Unpause::Response &res)
 void RosPlantWrapper::plant_input_callback(const std_msgs::Float64::ConstPtr &msg)
 {
     plant_dynamics_ptr->set_input(msg->data);
+
+    cout<<"State: "<<state_.transpose()<<endl;
+    cout<<"Input:"<<msg->data<<endl;
+
 }
 
 
@@ -103,8 +107,6 @@ void RosPlantWrapper::run()
                 plant_dynamics_ptr->dynamics(s, s_dot, t);
             }
         , state_, time_now, dt_);
-
-        // cout<<"State: "<<state_.transpose()<<endl;
 
         publish_state(state_);
 
