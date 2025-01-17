@@ -1,0 +1,14 @@
+<launch>
+  <node name="inverted_pend_node" pkg="inverted_pend" type="inverted_pend_node" output="screen"/>
+    <param name='m' type="double" value="0.5"/>
+    <param name='l' type="double" value="0.6"/>
+    <param name='M' type="double" value="1.0"/>
+    <param name='theta0' type="double" value="0.1"/>
+  
+  <node name="PID_Control" pkg="inverted_pend" type="inverted_pend_controller" output="screen"/>
+    <param name='ControlType' type="string" value="PID"/>
+    <param name='Kp' type="double" value="10"/>
+    <param name='Ki' type="double" value="0.01"/>
+    <param name='Kd' type="double" value="4"/>
+
+</launch>
