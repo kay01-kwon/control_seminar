@@ -18,7 +18,7 @@ class InvPendControl{
     
     virtual ~InvPendControl();
 
-    virtual void setGains(const double &kp, const double &ki, const double &kd) = 0;
+    // virtual void setGains(const double &kp, const double &ki, const double &kd) = 0;
 
     static std::unique_ptr<InvPendControl> createControl(ControlType type);
 

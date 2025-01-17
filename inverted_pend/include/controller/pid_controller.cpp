@@ -39,7 +39,7 @@ const double &time)
 
     error_ = state(0) - des_state(0);
     integral_ += error_*dt;
-    u_ = -kp_*error_ - ki_*integral_ - kd_*(state(1) - des_state(1));
+    u_ = - kp_*error_ - ki_*integral_ - kd_*(state(1) - des_state(1));
 
     prev_error_ = error_;
     time_prev_ = time;

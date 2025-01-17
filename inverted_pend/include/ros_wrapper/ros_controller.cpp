@@ -19,7 +19,7 @@ ROSControl::ROSControl(const ros::NodeHandle &nh)
 
         cout << "Kp: " << Kp << " Ki: " << Ki << " Kd: " << Kd << endl;
         control_ = InvPendControl::createControl(ControlType::PID);
-        control_->setGains(Kp, Ki, Kd);
+        static_cast<PIDControl*>(control_.get())->setGains(Kp, Ki, Kd);
     }
     else if(control_type == "StateFeedback")
     {

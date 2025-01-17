@@ -10,7 +10,7 @@ class PIDControl : public InvPendControl{
 
     ~PIDControl();
 
-    virtual void setGains(const double& kp, const double& ki, const double& kd);
+    void setGains(const double& kp, const double& ki, const double& kd);
 
     double computeControl(const State& state, 
     const State& des_state, const double& time) override;
